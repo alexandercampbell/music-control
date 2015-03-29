@@ -13,20 +13,41 @@
                 width: 80%;
                 padding: 25px;
             }
+            #buttons_container {
+                padding: 10px;
+            }
             .button {
-                background-color: #3a3;
-                padding: 25px;
-                border: 3px;
-                width: 40px;
+                background-color: #66CC00;
+                padding: 9px;
+                border: 2px solid;
+                border-color: black;
                 border-radius: 7px;
+                display: inline-block;
+            }
+            .padding {
+                width: 40px;
+                display: inline-block;
             }
         </style>
+
+        <script src="/static/index.js"></script>
     </head>
 
     <body>
         <div style="height:40px;margin:0 auto;"></div>
         <div id="page">
         <h2>Raspberry Pi Remote Control Panel</h2>
+
+        <div id="buttons_container">
+            <span id="bbc" class="button">
+                Launch BBC Radio
+            </span>
+            <!--<span class="padding"></span>-->
+            <span id="police" class="button">
+                Launch Police Scanner
+            </span>
+        </div>
+
         <pre>
 <b>System Information:</b>
 {{ .Uname }}
@@ -35,13 +56,6 @@
 <b>Running processes:</b>
 {{ .PS }}
         </pre>
-
-        <div id="buttons_container">
-            <div id="bbc" class="button">
-                Launch BBC Radio
-            </div>
-        </div>
-
         </div>
     </body>
 </html>
