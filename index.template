@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Raspberry Pi Remote Control Panel</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                background-color: gray;
+            }
+            #page {
+                background-color: #eee;
+                width: 80%;
+                padding: 25px;
+            }
+            .button {
+                background-color: #3a3;
+                padding: 25px;
+                border: 3px;
+                width: 40px;
+                border-radius: 7px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div style="height:40px;margin:0 auto;"></div>
+        <div id="page">
+        <h2>Raspberry Pi Remote Control Panel</h2>
+        <pre>
+<b>System Information:</b>
+{{ .Uname }}
+<b>Current User:</b>
+{{ .Whoami }}
+<b>Running processes:</b>
+{{ .PS }}
+        </pre>
+
+        <div id="buttons_container">
+            <div id="bbc" class="button">
+                Launch BBC Radio
+            </div>
+        </div>
+
+        </div>
+    </body>
+</html>
+
