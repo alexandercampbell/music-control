@@ -14,10 +14,10 @@ func get(command string, args ...string) string {
 	return string(out)
 }
 
-var info = func() *Info {
+func getInfo() *Info {
 	return &Info{
 		Uname:  get("uname", "-a"),
 		Whoami: get("whoami"),
 		PS:     get("ps", "u"),
 	}
-}()
+}

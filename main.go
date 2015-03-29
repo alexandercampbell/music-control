@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"os/exec"
 )
 
 var (
@@ -11,15 +12,17 @@ var (
 )
 
 func indexPage(w http.ResponseWriter, r *http.Request) {
-	indexTemplate.Execute(w, info)
+	indexTemplate.Execute(w, getInfo())
 }
 
 func startBBC(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Recieved request to launch BBC Radio from", r.RemoteAddr)
+	exec.Command("bash", "scripts/bbc.sh").Start()
 }
 
 func startPolice(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Recieved request to launch police scanner from", r.RemoteAddr)
+	exec.Command("bash", "scripts/police.sh").Start()
 }
 
 func main() {
