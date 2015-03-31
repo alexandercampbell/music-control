@@ -29,8 +29,6 @@
                 display: inline-block;
             }
         </style>
-
-        <script src="/static/index.js"></script>
     </head>
 
     <body>
@@ -39,13 +37,21 @@
         <h2>Raspberry Pi Remote Control Panel</h2>
 
         <div id="buttons_container">
-            <span id="bbc" class="button">
-                Launch BBC Radio
+            {{ range $key, $value := .Buttons }}
+            <span id="{{$value}}" class="button">
+                {{ $key }}
             </span>
-            <!--<span class="padding"></span>-->
-            <span id="police" class="button">
-                Launch Police Scanner
-            </span>
+            <script type="text/javascript">
+                document.getElementById("{{$value}}").onclick = function() {
+                    var button = document.getElementById("{{$value}}")
+                    button.style.backgroundColor = "#610";
+                    var xmlhttp = new XMLHttpRequest;
+                    xmlhttp.open("POST", "/triggers/{{$value}}", true);
+                    xmlhttp.send();
+                    location.reload();
+                }
+            </script>
+            {{ end }}
         </div>
 
         <pre>

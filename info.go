@@ -3,9 +3,11 @@ package main
 import "os/exec"
 
 type Info struct {
-	Uname  string
-	Whoami string
-	PS     string
+	// map of humanreadable to ID
+	Buttons map[string]string
+	Uname   string
+	Whoami  string
+	PS      string
 }
 
 func get(command string, args ...string) string {
@@ -16,8 +18,9 @@ func get(command string, args ...string) string {
 
 func getInfo() *Info {
 	return &Info{
-		Uname:  get("uname", "-a"),
-		Whoami: get("whoami"),
-		PS:     get("ps", "u"),
+		Buttons: buttons,
+		Uname:   get("uname", "-a"),
+		Whoami:  get("whoami"),
+		PS:      get("ps", "u"),
 	}
 }
