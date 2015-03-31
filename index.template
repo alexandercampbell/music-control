@@ -3,32 +3,7 @@
 <html>
     <head>
         <title>Raspberry Pi Remote Control Panel</title>
-        <style>
-            body {
-                font-family: sans-serif;
-                background-color: gray;
-            }
-            #page {
-                background-color: #eee;
-                width: 80%;
-                padding: 25px;
-            }
-            #buttons_container {
-                padding: 10px;
-            }
-            .button {
-                background-color: #66CC00;
-                padding: 9px;
-                border: 2px solid;
-                border-color: black;
-                border-radius: 7px;
-                display: inline-block;
-            }
-            .padding {
-                width: 40px;
-                display: inline-block;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="static/index.css">
     </head>
 
     <body>
