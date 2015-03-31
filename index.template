@@ -7,25 +7,32 @@
     </head>
 
     <body>
-        <div style="height:40px;margin:0 auto;"></div>
+        <div style="height:40px;width:80%;margin:0px auto;"></div>
         <div id="page">
         <h2>Raspberry Pi Remote Control Panel</h2>
 
         <div id="buttons_container">
+            <!--
+                Iterate the buttons that exist and inject them as HTML entities
+                with associated onclick handlers.
+            -->
+
             {{ range $key, $value := .Buttons }}
-            <span id="{{$value}}" class="button">
-                {{ $key }}
-            </span>
-            <script type="text/javascript">
-                document.getElementById("{{$value}}").onclick = function() {
-                    var button = document.getElementById("{{$value}}")
-                    button.style.backgroundColor = "#610";
-                    var xmlhttp = new XMLHttpRequest;
-                    xmlhttp.open("POST", "/triggers/{{$value}}", true);
-                    xmlhttp.send();
-                    location.reload();
-                }
-            </script>
+                <span id="{{$value}}" class="button">
+                    {{ $key }}
+                </span>
+                <script type="text/javascript">
+                    // Set up onclick handler for each button that points to
+                    // `/triggers/{buttonID}`.
+                    document.getElementById("{{$value}}").onclick = function() {
+                        var button = document.getElementById("{{$value}}")
+                        button.style.backgroundColor = "#610";
+                        var xmlhttp = new XMLHttpRequest;
+                        xmlhttp.open("POST", "/triggers/{{$value}}", true);
+                        xmlhttp.send();
+                        location.reload();
+                    }
+                </script>
             {{ end }}
         </div>
 
