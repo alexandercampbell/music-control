@@ -1,26 +1,36 @@
 
 body {
 	font-family: sans-serif;
-	background-color: gray;
+	background-color: #444;
 }
 
 #page {
-	background-color: #eee;
+	background-color: #ccc;
+	border-radius: 10px;
 	width: 80%;
+	margin: 0px auto;
 	padding: 25px;
 }
 
+#logo {
+	position: absolute;
+	margin-left: auto;
+	opacity: 0.1;
+	pointer-events: none;
+}
+
 #buttons_container {
-	padding: 10px;
+	width: auto;
 }
 
 .button {
 	background-color: #66CC00;
 	padding: 9px;
-	border: 2px solid;
+	border: 1px solid;
 	border-color: black;
 	border-radius: 7px;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .padding {

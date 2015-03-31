@@ -7,26 +7,26 @@
     </head>
 
     <body>
-        <div style="height:40px;width:80%;margin:0px auto;"></div>
         <div id="page">
-        <h2>Raspberry Pi Remote Control Panel</h2>
+        <img id="logo" src="static/raspberry_pi_logo.png"></img>
+        <h2 id="page_title">Raspberry Pi Remote Control Panel</h2>
 
         <div id="buttons_container">
             <!--
                 Iterate the buttons that exist and inject them as HTML entities
-                with associated onclick handlers.
+                with associated `onclick` handlers.
             -->
-
             {{ range $key, $value := .Buttons }}
-                <span id="{{$value}}" class="button">
+                <div id="{{$value}}" class="button">
                     {{ $key }}
-                </span>
+                </div>
                 <script type="text/javascript">
                     // Set up onclick handler for each button that points to
                     // `/triggers/{buttonID}`.
                     document.getElementById("{{$value}}").onclick = function() {
                         var button = document.getElementById("{{$value}}")
                         button.style.backgroundColor = "#610";
+
                         var xmlhttp = new XMLHttpRequest;
                         xmlhttp.open("POST", "/triggers/{{$value}}", true);
                         xmlhttp.send();
@@ -36,14 +36,18 @@
             {{ end }}
         </div>
 
+        <br>
+        <hr>
+
         <pre>
 <b>System Information:</b>
 {{ .Uname }}
 <b>Current User:</b>
 {{ .Whoami }}
 <b>Running processes:</b>
-{{ .PS }}
-        </pre>
+{{ .PS }}</pre>
+
+        <div class="button" onclick="location.reload();" style="text-align: center; margin: 0 auto;">Reload</div>
         </div>
     </body>
 </html>
