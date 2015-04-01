@@ -5,7 +5,7 @@ body {
 }
 
 #page {
-	background-color: #ccc;
+	background-color: #eee;
 	border-radius: 10px;
 	width: 80%;
 	margin: 0px auto;
@@ -24,10 +24,11 @@ body {
 }
 
 .button {
-	background-color: #66CC00;
+	background-color: #5D0;
+	position: relative;
 	padding: 9px;
-	border: 1px solid;
-	border-color: black;
+	border: 2px solid;
+	border-color: #140;
 	border-radius: 7px;
 	display: inline-block;
 	cursor: pointer;
