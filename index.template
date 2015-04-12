@@ -42,6 +42,8 @@
         <pre>
 <b>System Information:</b>
 {{ .Uname }}
+<b>Time:</b>
+{{ .WhatTime }}
 <b>Current User:</b>
 {{ .Whoami }}
 <b>Running processes:</b>
