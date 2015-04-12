@@ -20,7 +20,8 @@ func main() {
 	log.SetPrefix("")
 	http.HandleFunc("/", indexPage)
 	http.HandleFunc("/index.html", indexPage)
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/static/", http.StripPrefix("/static/",
+		http.FileServer(http.Dir("static"))))
 
 	log.Println("------------------------------------")
 	log.Println("          MUSIC CONTROLLER          ")
