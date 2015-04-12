@@ -56,5 +56,5 @@ func main() {
 	log.Println()
 	log.Println("Music Controller is running on :8000")
 
-	http.ListenAndServe(":8000", nil)
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
