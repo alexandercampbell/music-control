@@ -14,6 +14,9 @@ func readButtonsFromDirectory(directoryPath string) map[string]string {
 
 	buttons := map[string]string{}
 	for _, file := range files {
+		if strings.HasPrefix(file.Name(), ".") {
+			continue
+		}
 		properName := file.Name()
 		if strings.HasSuffix(properName, ".sh") {
 			properName = properName[:len(properName)-3]
