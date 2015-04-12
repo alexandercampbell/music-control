@@ -15,8 +15,9 @@ func readButtonsFromDirectory(directoryPath string) map[string]string {
 	buttons := map[string]string{}
 	for _, file := range files {
 		properName := file.Name()
-		properName = strings.TrimSuffix(properName, ".sh")
-		properName = strings.TrimSuffix(properName, ".bat")
+		if strings.HasSuffix(properName, ".sh") {
+			properName = properName[:len(properName)-3]
+		}
 		properName = strings.Replace(properName, "_", " ", -1)
 		properName = strings.Title(properName)
 
