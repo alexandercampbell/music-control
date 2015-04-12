@@ -4,11 +4,11 @@ import "os/exec"
 
 type Info struct {
 	// map of humanreadable to ID
-	Buttons map[string]string
-	Uname   string
+	Buttons  map[string]string
+	Uname    string
 	WhatTime string
-	Whoami  string
-	PS      string
+	Whoami   string
+	PS       string
 }
 
 func get(command string, args ...string) string {
@@ -19,10 +19,10 @@ func get(command string, args ...string) string {
 
 func getInfo() *Info {
 	return &Info{
-		Buttons: buttons,
-		Uname:   get("uname", "-a"),
-		WhatTime: get ("date"),
-		Whoami:  get("whoami"),
-		PS:      get("bash", "-c", "ps ux | grep vlc"),
+		Buttons:  buttons,
+		Uname:    get("uname", "-a"),
+		WhatTime: get("date"),
+		Whoami:   get("whoami"),
+		PS:       get("bash", "-c", "ps ux | grep vlc"),
 	}
 }
